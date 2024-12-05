@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "https://dream-nest-839d524209f3.herokuapp.com/"]
 
 
 # Application definition
@@ -48,9 +48,11 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic', 
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware", 
@@ -154,6 +156,10 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWS_CREDENTIALS = True
+
+
 # Messages
 from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
@@ -166,3 +172,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USER_TLS = True
+
+if os.getcwd() == '/app':
+    DEBUG = False
