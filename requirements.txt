@@ -2,6 +2,7 @@ asgiref==3.8.1
 astroid==3.2.2
 dill==0.3.8
 Django==5.0.6
+django-cors-headers==4.6.0
 gunicorn==23.0.0
 isort==5.13.2
 mccabe==0.7.0
