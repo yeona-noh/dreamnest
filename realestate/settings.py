@@ -33,7 +33,8 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWS_CREDENTIALS = True
 
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "dream-nest-839d524209f3.herokuapp.com/"]
+# ALLOWED_HOSTS = ["127.0.0.1", "localhost", "dream-nest-839d524209f3.herokuapp.com/"]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
