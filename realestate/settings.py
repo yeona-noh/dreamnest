@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+import boto3
 
 load_dotenv()
 
@@ -96,7 +97,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'dreamnest',
-        'USER': 'postgres',
+        'USER': os.getenv('USER'),
         'PASSWORD': os.getenv('PASSWORD'),
         'HOST': os.getenv('DB_HOST'),
         'PORT': '5432'
@@ -180,3 +181,12 @@ EMAIL_USER_TLS = True
 
 if os.getcwd() == '/app':
     DEBUG = False
+
+
+s3 = boto3.resource('s3')
+AWS_QUERYSTRING_AUTH = False
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = 'dreamnest'
+AWS_REGION = 'us-east-2'
