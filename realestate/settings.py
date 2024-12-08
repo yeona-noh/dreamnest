@@ -99,8 +99,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'dreamnest',
         'USER': 'postgres',
-        'PASSWORD': os.getenv('PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
+        'PASSWORD': 'darcy0728',
+        'HOST': 'dream-nest.c72m0c2qksgs.us-east-2.rds.amazonaws.com',
         'PORT': '5432'
     }
 }
