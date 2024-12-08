@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-06*4$32yorrc1d45vdodrw!h1xkp-syk%$ha*o-71ql$z7xgw%'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -34,8 +34,8 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWS_CREDENTIALS = True
 
 
-# ALLOWED_HOSTS = ["127.0.0.1", "localhost", "dream-nest-839d524209f3.herokuapp.com/"]
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "dream-nest-839d524209f3.herokuapp.com"]
+
 
 
 # Application definition
@@ -99,8 +99,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'dreamnest',
         'USER': 'postgres',
-        'PASSWORD': 'darcy0728',
-        'HOST': 'dream-nest.c72m0c2qksgs.us-east-2.rds.amazonaws.com',
+        'PASSWORD': os.getenv('PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
         'PORT': '5432'
     }
 }
