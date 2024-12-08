@@ -98,7 +98,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'dreamnest',
-        'USER': os.getenv('USER'),
+        'USER': 'postgres',
         'PASSWORD': os.getenv('PASSWORD'),
         'HOST': os.getenv('DB_HOST'),
         'PORT': '5432'
